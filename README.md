@@ -2,7 +2,7 @@
 龚宇
 <head>
 	<style type="text/css">
-		#aff
+		.aff
 		{
 			display: block;
 			widows: auto;
@@ -14,7 +14,7 @@
 			font-size: 20px;
 		}
 
-		#aff:hover
+		.aff:hover
 		{
 			color: white;
 			background: black; /* 鼠标放上去背景变色*/
@@ -22,8 +22,13 @@
 			border-radius: 5px;  /*鼠标放上去让他有圆角边框*/
 			margin-left: 30px;  /*鼠标放上去让他移动*/
 		}
+		.fons
+		{
+			font-size:12px;
+		}
 	</style>
 </head>
 <body>
-	<a href="https://idrnyu.github.io/main/" target="_blank" id="aff">地理坐标转换器</a>
+	<a href="https://idrnyu.github.io/main/" target="_blank" class="aff">地理坐标转换器</a>
+	<a href="https://github.com/idrnyu/days" target="_blank" class="aff fons">源代码地址</a>
 </body>
