@@ -32,6 +32,6 @@
 	</style>
 </head>
 <body>
-	<a href="https://idrnyu.github.io/main/" target="_blank" class="aff" id="fas1">地理坐标转换器</a>
-	<a href="https://github.com/idrnyu/days" target="_blank" class="aff" id="fas">地理坐标转换器源代码地址</a>
+	<a href="https://idrnyu.github.io/main/" class="aff" id="fas1">地理坐标转换器</a>
+	<a href="https://github.com/idrnyu/days" class="aff" id="fas">地理坐标转换器源代码地址</a>
 </body>
