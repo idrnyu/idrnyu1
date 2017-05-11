@@ -11,9 +11,15 @@
 			color: blue;
 			/*transition: all 0.4s;*/
 			transition: all 0.4s linear 0.1s;  /*延时执行鼠标放上去的效果*/
+		}
+		.fas1
+		{
 			font-size: 20px;
 		}
-
+		.fas
+		{
+			font-size: 11px;
+		}
 		.aff:hover
 		{
 			color: white;
@@ -26,6 +32,6 @@
 	</style>
 </head>
 <body>
-	<a href="https://idrnyu.github.io/main/" target="_blank" class="aff">地理坐标转换器</a>
-	<a href="https://github.com/idrnyu/days" target="_blank" class="aff">地理坐标转换器源代码地址</a>
+	<a href="https://idrnyu.github.io/main/" target="_blank" class="aff fas1">地理坐标转换器</a>
+	<a href="https://github.com/idrnyu/days" target="_blank" class="aff fas">地理坐标转换器源代码地址</a>
 </body>
