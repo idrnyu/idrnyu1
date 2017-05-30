@@ -26,7 +26,7 @@
         <div id="nav1">
             <ul>
                 <div id="mimg"></div>
-                <h4 id="mspan">iDRnYu</h4>
+                <h4 id="mspan" onclick="my_off()">iDRnYu</h4>
                 <li>
                     <a href="https://github.com/idrnyu" target="_blank">iDRnYu的GitHub首页</a>
                 </li>
@@ -40,7 +40,7 @@
                     <a href="#">iDRnYu</a>
                 </li>
                 <li>
-                    <a href="#">关于iDRnYu</a>
+                    <a href="#helpsbox" onclick="my_on()" class="helps">关于iDRnYu</a>
                 </li>
             </ul>
         </div>
@@ -75,6 +75,14 @@
         </div>
     </div>
 
+    <div id="helpsbox" style="display:none;">
+        <div id="about">
+            <h1>About iDRnYu</h1>
+            <p></p>
+        </div>
+    </div>
+
 </body>
+<script src="js/idrnyujs.js" type="text/javascript" charset="utf-8"></script>
 
 </html>
