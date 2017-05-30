@@ -1,0 +1,99 @@
+body {
+    background: rgb(58, 58, 58);
+}
+
+#mnav {
+    width: auto;
+    height: 54px;
+    /*border: 1px solid yellow;*/
+}
+
+#mimg {
+    margin: 6px 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    float: left;
+    background: url(https://avatars0.githubusercontent.com/u/27189085?v=3&s=460) no-repeat;
+    background-size: 100% 100%;
+    margin-left: 10px;
+}
+
+#mspan {
+    color: rgba(255, 255, 255, 0.85);
+    float: left;
+    line-height: 54px;
+    margin: 0 26px;
+    font-size: 24px;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+#nav1 {
+    height: 54px;
+    width: 990px;
+    /*border: 1px solid blue;*/
+    margin: 0 auto;
+    box-shadow: 0 5px 6px -1px rgba(255, 255, 255, 0.6);
+}
+
+#post_m {
+    width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#nav1 ul li {
+    list-style: none;
+    float: left;
+    margin: 0 15px;
+    line-height: 54px;
+    font-weight: 600;
+}
+
+#nav1 ul li a {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+#nav1 ul li a:hover {
+    color: white;
+}
+
+#mcontent {
+    width: 600px;
+    height: auto;
+    margin: 30px 50px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.post_item {
+    border-width: 1px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.post_item a {
+    color: white;
+    font-size: 20px;
+}
+
+.post_item a:hover {
+    color: blueviolet;
+}
+
+.post_item img {
+    width: 100%;
+    height: auto;
+}
+
+.tim a {
+    font-size: 8px;
+}
+
+.post_item p {
+    text-indent: 2em;
+    color: rgb(200, 200, 200);
+}
