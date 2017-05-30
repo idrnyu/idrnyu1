@@ -106,3 +106,10 @@ h1 {
     text-indent: 2em;
     color: rgb(200, 200, 200);
 }
+
+footer {
+    padding: 60px 0 40px;
+    max-width: 950px;
+    margin: 0 auto;
+    text-align: center;
+}
