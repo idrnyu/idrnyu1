@@ -91,6 +91,7 @@ h1 {
 
 .post_item a:hover {
     color: blueviolet;
+    color: rgb(29, 108, 251);
 }
 
 .post_item img {
