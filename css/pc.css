@@ -19,7 +19,7 @@ body {
     margin-left: 10px;
 }
 
-#mspan {
+#mspan a {
     color: rgba(255, 255, 255, 0.85);
     float: left;
     line-height: 54px;
@@ -90,7 +90,7 @@ h1 {
 }
 
 .post_item a:hover {
-    color: blueviolet;
+    /*color: blueviolet;*/
     color: rgb(29, 108, 251);
 }
 
