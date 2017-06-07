@@ -15,88 +15,133 @@
     <meta name="keywords" content="idrnyu,iDRnYu,idrnyu主页,爱开源,我不是爱奇艺的龚宇！,idrnyu博客" />
     <meta name="description" content="开源,博客，爱编程，！" />
 
-
     <link rel="icon" type="image/png" href="https://avatars0.githubusercontent.com/u/27189085?v=3&s=460">
-    <style type="text/css">
-        body {
-            background: rgb(58, 58, 58);
-        }
-        
-        .aff {
-            display: block;
-            margin: 20px 0;
-            text-decoration: none;
-            /*删除下划线*/
-            color: aquamarine;
-            /*transition: all 0.4s;*/
-            transition: all 0.4s linear 0.1s;
-            /*延时执行鼠标放上去的效果*/
-            width: 200px;
-        }
-        
-        .fas1 {
-            font-size: 20px;
-        }
-        
-        .fas {
-            font-size: 11px;
-            text-indent: 2em;
-        }
-        
-        .aff:hover {
-            color: brown;
-            background: wheat;
-            /* 鼠标放上去背景变色*/
-            zoom: 1;
-            border-radius: 5px;
-            /*鼠标放上去让他有圆角边框*/
-            margin-left: 30px;
-            /*鼠标放上去让他移动*/
-        }
-        
-        #mainbox {
-            margin: 40px 100px;
-        }
-        
-        #mainh1 {
-            width: 300px;
-            text-decoration: none;
-            /*删除下划线*/
-        }
-        
-        #box1 {
-            margin: 10px 100px;
-        }
-        
-        #minsb {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            border: 1px solid yellow;
-            background: url(https://avatars0.githubusercontent.com/u/27189085?v=3&s=460) no-repeat;
-            background-size: 100% 100%;
-        }
-    </style>
+
+    <link rel="stylesheet" type="text/css" href="css/pc.css">
+    <link rel="stylesheet" type="text/css" href="css/cssreset.css">
 </head>
 
 <body>
-    <div id="mainbox">
-        <a href="https://idrnyu.github.io" id="mainh1">
-            <h2 style="color: greenyellow;">idrnyu的简易主页</h2>
-        </a>
-        <div id="minsb">
-            <!--<img src="https://avatars0.githubusercontent.com/u/27189085?v=3&s=460" style="height: 100%; width: 100%;" />-->
+    <div id="mnav">
+        <div id="nav1">
+            <ul>
+                <div id="mimg"></div>
+                <h4 id="mspan" onclick="my_off()">
+                    <a href="#">iDRnYu</a>
+                </h4>
+                <li>
+                    <a href="https://github.com/idrnyu" target="_blank">iDRnYu的GitHub首页</a>
+                </li>
+                <li>
+                    <a href="#">开源小项目</a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#">iDRnYu</a>
+                </li>
+                <li>
+                    <a href="#helpsbox" onclick="my_on()" class="helps">关于iDRnYu</a>
+                </li>
+            </ul>
         </div>
+    </div>
+    <div id="post_m">
+        <div id="mcontent">
+            <div class="post_item">
+                <h3>
+                    <a href="https://idrnyu.github.io/main/" target="_blank" ;>WGS-48坐标转换为GCJ-02</a>
+                </h3>
+                <p>
+                    玩过GPS模块的大侠们都应该知道，在中国用GPS模块接收卫星坐标是标准的大地坐标， 但是我国国土测绘局将绘制的地图是经过加偏后发布公开的，那么我们得到的原始GPS 数据套用在中国地图上是有较大的偏移的…………
+                </p>
+                <img src="img/gps.png" alt="">
+                <div class="tim">
+                    <a href="#" class="ptn">iDRnYu</a> "发布于 2017-5-20 22:30"
+                </div>
+            </div>
 
+            <div class="post_item">
+                同上
+            </div>
+        </div>
     </div>
-    <br />
-    <hr />
-    <div id="box1">
-        <nav>
-            <a href="https://idrnyu.github.io/main/" class="aff fas1">地理坐标转换器</a>
-            <a href="https://github.com/idrnyu/days" class="aff fas">地理坐标转换器源代码地址</a>
-        </nav>
+
+    <div id="helpsbox" style="display:none;">
+        <div id="about">
+            <h1>About iDRnYu</h1>
+            <p>
+                出生于偏僻小农村的我，从小不喜读书，成绩不好，好玩。 我有个勤劳肯做的父亲、一个喜欢多想的母亲、两个姐姐，其实我是还有一个姐姐的， 但是负担不起，只好送走了我上面的一个姐姐，当然我不知道你们看到这句会怎么想， 可能你们觉得我父母很残忍，或者说我比较多余。至少我知道我们家境是很不好
+            </p>
+        </div>
     </div>
+
+
+
+    <footer>
+        <div class="container_24">
+            <div class="wrapper">
+                <div class="grid_24">
+                    <!--Copyright ©-->
+
+                    <!--<script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+                    <script language="javascript">
+                        var _go_js = "1.0";
+                    </script>
+                    <script language="javascript1.1">
+                        _go_js = "1.1";
+                    </script>
+                    <script language="javascript1.2">
+                        _go_js = "1.2";
+                    </script>
+                    <script language="javascript1.3">
+                        _go_js = "1.3";
+                    </script>
+                    <script language="javascript1.4">
+                        _go_js = "1.4";
+                    </script>
+                    <script language="javascript1.5">
+                        _go_js = "1.5";
+                    </script>
+                    <script language="javascript1.6">
+                        _go_js = "1.6";
+                    </script>
+                    <script language="javascript1.7">
+                        _go_js = "1.7";
+                    </script>
+                    <script language="javascript1.8">
+                        _go_js = "1.8";
+                    </script>
+                    <script language="javascript1.9">
+                        _go_js = "1.9";
+                    </script>-->
+
+                    <script language="javascript"></script>
+                    <a target="_blank" title="计数器" href="#"><img alt="计数器" src="http://monster.gostats.cn/bin/count/a_492770/t_4/i_1/z_0/show_hits/counter.png" style="border-width:0" /></a>
+
+
+                    <!--流量统计-->
+                    <!--<script type="text/javascript" src="https://ssl.gostats.com/js/counter.js"></script>
+                    <script type="text/javascript">
+                        _gos = 'monster.gostats.cn';
+                        _goa = 492770;
+                        _got = 2;
+                        _goi = 2;
+                        _gol = '流量计数器';
+                        _GoStatsRun();
+                    </script>
+                    <noscript><a target="_blank" title="流量计数器" 
+href="http://gostats.cn"><img alt="流量计数器" 
+src="https://ssl.gostats.com/bin/count/a_492770/t_2/i_2/ssl_monster.gostats.cn/counter.png" 
+style="border-width:0" /></a></noscript><br /><a target="_blank" href="http://monster.gostats.cn/click/492770/web-counter/stats-home" style="font: 9px sans-serif" title="流量计数器">流量计数器</a>-->
+
+                </div>
+            </div>
+
+    </footer>
+
 </body>
+<script src="js/idrnyujs.js" type="text/javascript" charset="utf-8"></script>
 
 </html>
