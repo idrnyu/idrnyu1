@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>QQ前端定位模块最终版本</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <script type="text/javascript" src="https://apis.map.qq.com/tools/geolocation/min?key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77&referer=myapp"></script>
+</head>
+
+<body>
+    <div id="pos-area">
+        <p id="demo">点击下面的按钮，获得对应信息：<br /></p>
+    </div>
+
+    <div id="btn-area">
+        <button onClick="getCurLocation()">获取精确定位信息</button>
+    </div>
+
+    <script type="text/JavaScript">
+        var geolocation = new qq.maps.Geolocation(); 
+        document.getElementById("pos-area").style.height = (document.body.clientHeight - 110) + 'px'; 
+        var options = {timeout: 5000}; var positionNum = 0; 
+        function getCurLocation() { 
+            geolocation.getLocation(showPosition,showErr, options); 
+        } 
+        function showPosition(position) { 
+            positionNum ++; 
+            document.getElementById("demo").innerHTML += "序号：" + positionNum; 
+            document.getElementById("demo").appendChild(document.createElement('pre')).innerHTML = JSON.stringify(position,null, 4); 
+            document.getElementById("pos-area").scrollTop = document.getElementById("pos-area").scrollHeight; console.log(position); 
+        }
+        function showErr() { 
+            positionNum ++; 
+            document.getElementById("demo").innerHTML += "序号：" + positionNum; 
+            document.getElementById("demo").appendChild(document.createElement('p')).innerHTML= "定位失败！"; 
+            document.getElementById("pos-area").scrollTop = document.getElementById("pos-area").scrollHeight;
+            geolocation.getIpLocation(showPosition, showErr); //获取失败就取出粗糙定位 
+        }
+    </script>
+</body>
+
+</html>

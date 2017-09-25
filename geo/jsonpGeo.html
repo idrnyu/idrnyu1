@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSONP接口地理定位</title>
+    <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://api.asilu.com/geo/?callback=data"></script> -->
+    <!-- http://ditu.amap.com/service/regeo?longitude=113.9359753&latitude=22.5245293 -->
+</head>
+
+<body>
+    <input type="button" value="获取地理位置" id="getAdd">
+</body>
+<script>
+    var datas = {};
+    $(document).ready(function() {
+        $('#getAdd').on('click', function() {
+            $.ajax({
+                type: 'get',
+                url: 'https://api.asilu.com/geo/?callback=data',
+                async: true,
+                dataType: 'jsonp',
+
+                success: function(data) {
+                    document.write(data.address);
+                    datas.data = data;
+                    console.log(data);
+                }
+            });
+        });
+    });
+</script>
+
+</html>
