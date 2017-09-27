@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+	</head>
+
+	<body>
+		<div class="top_content">
+			<img src="img/new/huobileiji.jpg">
+			<p>当前奖励红包</p>
+			<p>
+				<a class="org_a">￥</a><a class="money_a">{{bonusSum}}</a>
+				<a ng-click="goadl(2)">兑换></a>
+			</p>
+			<button id="hongbaobtn" class="button withdrawal_btn" ng-click="gotofenqi()">我要使用</button>
+		</div>
+		<div class="list notes">
+
+			<ion-item class="item">
+				<p>红包明细</p>
+			</ion-item>
+			<div class="list text-center">
+				<ion-item class="item notes_tab" ng-repeat="z in zsclientinfo">
+					<a class="float-l"> {{z.b_name }}</a>
+					<a class="amount_text"> +{{z.red_bonus_amt }}</a>
+					<a class="float-r"> {{z.bonus_time2 }}</a>
+				</ion-item>
+			</div>
+			<br>
+			<br>
+		</div>
+
+	</body>
+
+</html>

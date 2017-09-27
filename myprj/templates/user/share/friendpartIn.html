@@ -1,0 +1,43 @@
+<ion-view view-title="快贝分期"  can-swipe-back="false">
+	<link rel="stylesheet" type="text/css" href="templates/user/share/share.css" />
+  <ion-header-bar align-title="center" class="bar-light">
+    <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.index','true')"></i>
+    <h2 class="title">快贝分期</h2>
+  </ion-header-bar>
+  <ion-content >
+
+    <img src="img/subslideshoufu.png" class="img-style">
+
+    <label class="item item-input" class="name-marginTop3">
+      <span class="input-label font-13">姓名</span>
+      <input type="text" placeholder="请输入您的姓名" ng-model="userpartin.username">
+    </label>
+      <label class="item item-input" >
+        <span class="input-label font-13">手机</span>
+        <input type="text" placeholder="请输入您的手机" ng-model="userpartin.mobile">
+      </label>
+
+
+
+      <label class="item item-input">
+        <span class="input-label font-13">密码</span>
+        <input type="text" placeholder="请设置您的密码" ng-model="userpartin.password">
+      </label>
+
+      <div class="yanz">
+        <label class="item item-input">
+          <span class="input-label font-13">短信验证码</span>
+          <input type="text" maxlength="6" ng-model="userpartin.code" placeholder="请输入验证码">
+        </label>
+        <button class="button button-small button-positive"  ng-click="getTestCode()" >获取验证码</button>
+      </div>
+
+    <p class="btn"><button id="invite" class="button button-positive" ng-click="gotoverifycode()" >马上参与</button></p>
+
+    <!--setinviteCode-->
+    <p class="invite_Code" >邀请码  {{inviteparam}} </p>
+  </ion-content>
+
+</ion-view>
+
+

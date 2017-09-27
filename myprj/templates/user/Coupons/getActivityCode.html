@@ -1,0 +1,23 @@
+<ion-view view-title="领取优惠券" can-swipe-back="false">
+	<link rel="stylesheet" type="text/css" href="templates/user/Coupons/coupons.css"/>
+	<ion-header-bar align-title="center" class="bar-light">
+		<i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+		<h2 class="title">领取优惠券</h2>
+	</ion-header-bar>
+	<ion-content ng-controller="getActivityCodeCtrl" class="bg-gray addActivityCode">
+		<div class="regback">
+			<img src="../img/AAC_banner.png" width="100%" height="100%">
+		</div>
+		<div class="list">
+			<label class="item item-input">
+            <input type="tel"  placeholder="请输入优惠券" ng-model="json.code">
+            </label>
+
+		</div>
+		<div class="padding">
+			<button class="button button-block button-positive" ng-click="addCouponByCode()">确 定</button>
+		</div>
+
+		<div ng-include="pages[slectIndex]"></div>
+	</ion-content>
+</ion-view>

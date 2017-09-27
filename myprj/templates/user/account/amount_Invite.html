@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="list">
+
+  <ion-item class="item item-icon-right" ng-repeat="r in myredpacketall" ng-if="r.status">
+    {{r.rname }}
+    <a class="float-r Hgray-color" ng-click="duihuanquan1(r.id)">立即兑换</a>
+    <i class="icon ion-ios-arrow-right Hgray Hgray-color"></i>
+  </ion-item>
+
+
+  <div class="padding button-marginTop">
+    <button class="button button-block button-positive" >立即使用</button>
+  </div>
+
+  </div>
+
+</body>
+</html>

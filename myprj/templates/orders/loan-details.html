@@ -1,0 +1,136 @@
+<ion-view view-title="快贝分期" can-swipe-back="false" cache-view="false">
+	<link rel="stylesheet" type="text/css" href="templates/orders/stagingProducts.css"/>
+    <ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.index','true')"></i>
+        <h2 class="title">快贝分期</h2>
+         <div class="buttons right">
+          <a href="#/tab/personal">去还款</a>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="loan-details bg-gray" >
+      <div class="bg-line">
+        <h3>申请金额￥</h3>
+          <input type=""  ng-blur="valFn(orderlist.mount)" ng-model="orderlist.mount" class="ipublur">
+
+         <!-- <h1>￥{{orderlist.mount}}</h1> -->
+<!--         <div class="range">
+          <input type="range" name="volume"  ng-change="rangeChange()" step="100" value="{{orderlist.mount}}"  ng-model="orderlist.mount" max="{{orderlist.maxAmount}}" min="{{orderlist.minAmount}}">
+        </div> -->
+
+      <div class="range">
+            <input type="range" id="volume" name="volume"  ng-change="rangeChange()" step="100" value="{{orderlist.mount}}"  ng-model="orderlist.mount" max="{{orderlist.maxAmount}}" min="{{orderlist.minAmount}}">
+        </div>
+        <p  class="block-l">最低<br/>￥{{orderlist.minAmount}}</p>
+        <p class="float-r">最高<br/>￥{{orderlist.maxAmount}}</p>
+      </div>
+
+        <h4 class="bg-gray font-13 plan-title" ng-hide="walletshow">选择期数</h4>
+
+
+        <ul class="plan bg-white" ng-if="cplist">
+          <li ng-repeat="list in cplist " ng-click="liClss($index,list.month,list.monthRepaymentAmount)" ng-class="{on: $index==on}" ng-if="list.month=='6'">
+            <div class="float-l">
+              <span >{{list.month}}  </span>
+              个月
+            </div>
+            <div class="float-r">
+              <p>每个月应还</p>
+              <h3 class="font-14">￥{{list.monthRepaymentAmount}}<span class=" font-12">（可选服务费￥{{orderlist.increment}}）</span></h3>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+          <li ng-repeat="list in cplist " ng-click="liClss($index,list.month,list.monthRepaymentAmount)" ng-class="{on: $index==on}" ng-if="list.month=='12'">
+            <div class="float-l">
+              <span >{{list.month}}  </span>
+              个月
+            </div>
+            <div class="float-r">
+              <p>每个月应还</p>
+              <h3 class="font-14">￥{{list.monthRepaymentAmount}}<span class=" font-12">（可选服务费￥{{orderlist.increment}}）</span></h3>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+          <li ng-repeat="list in cplist " ng-click="liClss($index,list.month,list.monthRepaymentAmount)" ng-class="{on: $index==on}" ng-if="list.month=='18'">
+            <div class="float-l">
+              <span >{{list.month}}  </span>
+              个月
+            </div>
+            <div class="float-r">
+              <p>每个月应还</p>
+              <h3 class="font-14">￥{{list.monthRepaymentAmount}}<span class=" font-12">（可选服务费￥{{orderlist.increment}}）</span></h3>
+            </div>
+            <div class="clearfix"></div>
+          </li>
+
+        </ul>
+
+
+        <div ng-if="list.length<1">
+          <img src="../img/no.png" width="100%">
+          <p class="bule no-amount__pCenter" >没有额度</p>
+        </div>
+
+        <div class="list mt-1">
+
+          <div class="item item-icon-left " ng-repeat="item in settingsList">
+             <a ng-href="{{item.url}}" class="loan-ltem__explain" ><i class="icon ion-ios-help bule"></i>{{ item.text }}</a>
+             <label class="toggle toggle-positive float-r">
+               <input type="checkbox" ng-model="item.checked"
+                     ng-click="show(item,$index)" >
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </div>
+
+
+            <div class="item  item-icon-right" ng-click="showselect()" ng-hide="walletshow">
+                贷款用途
+                 <span class="item-note" ng-class="sid.clientSide !='请选择贷款用途' ?  'textcolor' : '' ">{{sid.clientSide}}</span>
+                <i class="icon ion-ios-arrow-right gray font-16"></i>
+            </div>
+            <div class="item  item-icon-right" ng-click="shop()" ng-hide="walletshow">
+              品牌
+                 <span class="item-note" ng-class="sh.itme.name !='请选择品牌' ?  'textcolor' : '' ">{{sh.itme.name}}</span>
+                <i class="icon ion-ios-arrow-right gray font-16"></i>
+            </div>
+            <div class="item  item-icon-right" ng-click="storeId(sh.itme.id)" ng-hide="walletshow">
+                门店
+                 <span class="item-note" ng-class="store.itme.name !='请选择门店' ?  'textcolor' : '' ">{{store.itme.name}}</span>
+                <i class="icon ion-ios-arrow-right gray font-16"></i>
+            </div>
+
+            <div class="item  item-icon-right"  ng-click="toBank()">
+                收款及扣款卡
+                <span class="item-note" ng-class="onebank.str !='选择银行卡' ?  'textcolor' : '' ">{{onebank.str}}</span>
+                <i class="icon ion-ios-arrow-right gray font-16"></i>
+            </div>
+
+          <div class="item  item-icon-right"  ng-click="tochooseptyouhui()" ng-hide="walletshow" >
+            平台优惠券
+            <span class="item-note" ng-class="ptyouhui.item.name !='请选择优惠券' ?  'textcolor' : '' ">{{ptyouhui.item.name}}</span>
+            <i class="icon ion-ios-arrow-right gray font-16"></i>
+          </div>
+
+            <div class="item  item-icon-right"  ng-click="tochooseyouhui()" ng-hide="walletshow">
+              商家抵扣券
+            <span class="item-note" ng-class="Coupons.item.name !='请选择折扣券' ?  'textcolor' : '' ">{{Coupons.item.name}}</span>
+            <i class="icon ion-ios-arrow-right gray font-16"></i>
+          </div>
+
+
+        </div>
+
+
+    </ion-content>
+
+
+
+    <ion-footer-bar class="bar-stable">
+         <a class="button button-positive btn-r margin_0auto" ng-click="showPopup(orderlist.mount,item.checked,orderlist.increment)">立即申请</a>
+    </ion-footer-bar>
+
+</ion-view>

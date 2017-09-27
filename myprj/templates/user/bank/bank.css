@@ -1,0 +1,18 @@
+.item-checkbox{
+	 height: 54px;
+}
+
+#checkbox1{
+	zoom: 80%;
+	margin-top: 6px;
+}
+
+#checkbox1+label{
+	font-size: 13px;
+	margin-left: 35px;
+	margin-top: -13px;
+}
+
+#checkbox1+label>a{
+	color: #0C60EE;
+}

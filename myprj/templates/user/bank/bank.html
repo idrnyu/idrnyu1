@@ -1,0 +1,38 @@
+<ion-view view-title="银行卡" can-swipe-back="false">
+	<ion-header-bar align-title="center" class="bar-light">
+		<i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+		<h2 class="title">银行卡</h2>
+	</ion-header-bar>
+	<ion-content class="bank bg-gray">
+		<p class="bank_tips">左滑打开设置主卡及解绑银行卡</p>
+		<ion-list class="list">
+			<ion-item ng-repeat="item in bankListUser" item="item" class="item-remove-animate">
+				<div class="row bg-white">
+					<div class="col col-20"><img ng-src="../img/bank/{{item.img}}.png" class="bankImg"></div>
+					<div class="col">
+						<p>{{item.account}}</p>
+						<p>{{item.bankType}}</p>
+					</div>
+					<div class="col" ng-if="item.isMaster==1">
+						<i class="icon ion-checkmark-circled  bule"></i>
+					</div>
+				</div>
+
+				<ion-option-button class="button-assertive" ng-click="onItemDelete(item)">
+					解绑
+				</ion-option-button>
+				<ion-option-button class="button-calm" ng-click="share(item)">
+					设置主卡
+				</ion-option-button>
+				<ion-reorder-button class="ion-navicon" on-reorder="moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+			</ion-item>
+
+		</ion-list>
+
+		<div class="list">
+			<a href="#/addbank" class="item">
+				<i class="icon ion-ios-plus-outline font-16"></i> 添加银行卡
+			</a>
+		</div>
+	</ion-content>
+</ion-view>

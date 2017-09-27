@@ -1,0 +1,63 @@
+<ion-view view-title="还款"  can-swipe-back="false"  cache-view="false">
+ 	<ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+        <h2 class="title">还款</h2>
+    </ion-header-bar>
+
+	<ion-content class="bg-gray pt-s" >
+			<div class="list">
+			  <div class="item ">
+			    订单号
+			    <span class="item-note">{{repayment.oanId}}</span>
+			  </div>
+			  <div class="item ">
+			    还款状态
+			    <span class="item-note" ng-if="repayment.status==0">未还款</span>
+			    <span class="item-note" ng-if="repayment.status==1">已还款</span>
+			  </div>
+			  <div class="item ">
+			    还款计划
+			    <span class="item-note">¥{{repayment.shouldAmount}} x {{repayment.loanPeriods}}期</span>
+			  </div>
+			  <div class="item " ng-if="repayment.isOverdue==1">
+			    逾期时间
+			    <span class="item-note">{{repayment.overdueDay}}天</span>
+			  </div>
+			  <div class="item " ng-if="repayment.isOverdue==1">
+			    逾期利息
+			    <span class="item-note">{{repayment.shouldOverdueAmount}}元</span>
+			  </div>
+			  <div class="item ">
+			    应还款金额
+			    <span class="item-note">¥{{repayment.shouldOverdueAmount + repayment.shouldAmount}}</span>
+			  </div>
+			  <label class="item item-input">
+			    <span class="input-label">还款金额</span>
+			    <input type="text" placeholder="输入您手动还款的金额" ng-model="subimt.realityAmount">
+			  </label>
+			  <label class="item item-input">
+			    <span class="input-label">还款方式</span>
+			    <input type="text" placeholder="输入微信、支付宝、银行卡" ng-model="subimt.way">
+			  </label>
+			  <label class="item item-input">
+			    <span class="input-label">还款账号</span>
+			    <input type="text" placeholder="请填写还款账号" ng-model="subimt.repaymentAccount">
+			  </label>
+			  <label class="item item-input">
+			    <span class="input-label">备注</span>
+			    <input type="text" placeholder="选填" ng-model="subimt.uremark">
+			  </label>
+			</div>
+			<div class="upimg bg-white">
+			<p class="font-14">还款凭证</p>
+				<div class="button" ngf-select="upload()" ngf-pattern="'image/*'" ngf-multiple="false" ng-model="data.file" runat="server" type="file" accept="image/*" >
+				    <span ng-if="!subimt.repaymentImgs"><i class="icon ion-plus-round"></i><br/>上传图片凭证</span>
+					<!-- <img ngf-src="data.file || data.defaultImage" class="img-responsive" width="100%"/> -->
+					<img ng-if="subimt.repaymentImgs" ng-src="{{subimt.repaymentImgs}}" alt=""  width="100%" class="img-responsive">
+				</div>
+
+			</div>
+
+	        <p class="btn"><button class="button button-positive " ng-click="subimtRepayment()">确定还款</button></p>
+	</ion-content>
+</ion-view>

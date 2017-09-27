@@ -1,0 +1,139 @@
+<ion-view view-title="快贝钱包" can-swipe-back="false" cache-view="false">
+
+  <ion-header-bar align-title="center" class="bar-light">
+    <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.index','true')"></i>
+    <h2 class="title">快贝钱包</h2>
+    <div class="buttons right">
+      <a href="#/tab/personal">去还款</a>
+    </div>
+  </ion-header-bar>
+
+  <ion-content class="loan-details bg-gray" >
+    <div class="bg-line">
+      <h3>可用总额度￥</h3>
+      <input type=""   ng-model="orderlist.mount" class="ipublur" />
+
+      <!-- <h1>￥{{orderlist.mount}}</h1> -->
+      <!--         <div class="range">
+                <input type="range" name="volume"  ng-change="rangeChange()" step="100" value="{{orderlist.mount}}"  ng-model="orderlist.mount" max="{{orderlist.maxAmount}}" min="{{orderlist.minAmount}}">
+              </div> -->
+
+      <div class="range">
+        <input type="range" id="volume" name="volume"  ng-change="rangeChange()" step="100" value="{{orderlist.mount}}"  ng-model="orderlist.mount" max="10000" min="1000" />
+      </div>
+      <p  class="block-l">最低<br/>￥1000</p>
+      <p class="float-r">最高<br/>￥10000</p>
+    </div>
+
+    <h4 class="bg-gray font-13 plan-title" >选择期数</h4>
+
+
+    <ul class="plan bg-white" >
+      <li  ng-click="KliClss1()"  ng-class="{on: index==1}" >
+        <div class="float-l">
+          10天
+        </div>
+        <div class="float-r">
+          <p>到期应还</p>
+          <h3 class="font-14">￥{{orderlist.mount}}<span class=" font-12">（可选服务费￥20）</span></h3>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+
+      <li  ng-click="KliClss2()" ng-class="{on: index==2}" >
+        <div class="float-l">
+          15天
+        </div>
+        <div class="float-r">
+          <p>到期应还</p>
+          <h3 class="font-14">￥{{orderlist.mount}}<span class=" font-12">（可选服务费￥20）</span></h3>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+
+      <li  ng-click="KliClss3()" ng-class="{on: index==3}" >
+        <div class="float-l">
+          30天
+        </div>
+        <div class="float-r">
+          <p>到期应还</p>
+          <h3 class="font-14">￥{{orderlist.mount}}<span class=" font-12">（可选服务费￥20）</span></h3>
+        </div>
+        <div class="clearfix"></div>
+      </li>
+
+    </ul>
+
+
+    <div ng-if="list.length<1">
+      <img src="../img/no.png" width="100%">
+      <p class="bule textCenter">没有额度</p>
+    </div>
+
+    <div class="list mt-1">
+
+<div class="item item-icon-left " ng-repeat="item in settingsList">
+	<a ng-href="{{item.url}}" class="loan-ltem__explain"><i class="icon ion-ios-help bule"></i>{{ item.text }}</a>
+	<label class="toggle toggle-positive float-r">
+               <input type="checkbox" ng-model="item.checked"
+                     ng-click="show(item,$index)" >
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+</div>
+<!--      <div class="item item-icon-left " >
+        <a  style="margin-top: 0.55rem;display: inline-block;" href=""><i class="icon ion-ios-help bule"></i>灵活还款及代扣协议</a>
+        <label class="toggle toggle-positive float-r">
+          <input type="checkbox" checked >
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </div>
+-->
+      <div class="item  item-icon-right" ng-click="showselect()">
+        贷款用途
+        <span class="item-note" ng-class="sid.clientSide !='请选择贷款用途' ?  'textcolor' : '' ">{{sid.clientSide}}</span><!--未做-->
+        <i class="icon ion-ios-arrow-right gray font-16"></i>
+      </div>
+
+
+      <div class="item  item-icon-right"  ng-click="toBank()">
+        收款及扣款卡
+        <span class="item-note" ng-class="onebank.str !='选择银行卡' ?  'textcolor' : '' ">{{onebank.str}}</span><!--未做-->
+        <i class="icon ion-ios-arrow-right gray font-16"></i>
+      </div>
+
+      <div class="item  item-icon-right"  ng-click="tochooseptyouhui()" ng-hide="walletshow" >
+        平台优惠券
+        <span class="item-note" ng-class="ptyouhui.item.name !='请选择优惠券' ?  'textcolor' : '' ">{{ptyouhui.item.name}}</span><!--未做-->
+        <i class="icon ion-ios-arrow-right gray font-16"></i>
+      </div>
+
+
+    </div>
+
+
+
+
+  </ion-content>
+
+
+
+  <ion-footer-bar class="bar-stable"></ion-footer-bar>
+
+</ion-view>
+
+<!--<script type="text/javascript"> (function () {-->
+  <!--var partnerIdValue = "kuaibeikj";-->
+  <!--var tokenKeyValue = localStorage.getItem("token");-->
+  <!--console.log("tokenKeyValue");-->
+  <!--_saber = {-->
+    <!--partnerId: partnerIdValue, tokenKey: tokenKeyValue-->
+  <!--};-->
+  <!--var aa = document.createElement('script'); aa.async = true;-->
+  <!--aa.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'df.baiqishi.com/static/webdf/saber.js?t=' + (new Date().getTime()/3600000).toFixed(0);-->
+  <!--var bb = document.getElementsByTagName('script')[0]; bb.parentNode.insertBefore(aa, bb);-->
+<!--})();-->
+<!--</script>-->

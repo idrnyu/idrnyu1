@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="list bg-gray" >
+  <p class="bank_tips">分期总额度<a class=" energized">￥{{Limitlist.totalLimit}} </a></p>
+  <ion-item
+    item="item">
+    可用额度 <a class="float-r">￥{{Limitlist.leftLimit}}</a>
+  </ion-item>
+
+  <ion-item
+    item="item">
+    已用额度 <a class="float-r">￥{{Limitlist.usedLimit}}</a>
+  </ion-item>
+
+  <div class="padding button-marginTop">
+    <button class="button button-block button-positive" ng-click="gotoloanpage()" >{{Limitbtntext}}</button>
+  </div>
+
+</div>
+
+
+
+</body>
+</html>

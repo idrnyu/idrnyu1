@@ -1,0 +1,83 @@
+<ion-view view-title="我的借款"  cache-view="false"  can-swipe-back="false">
+    <ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+        <h2 class="title">我的借款</h2>
+    </ion-header-bar>
+    <div class="tabs-striped tabs-top tabs-color-positive order"  has-tabs="true">
+      <div class="tabs">
+        <a class="tab-item" ng-class="{true:'active'}[status==99]" ng-click="tabs(99)">全部</a>
+        <a class="tab-item" ng-class="{true:'active'}[status==0]" ng-click="tabs(0)">待审核</a>
+        <a class="tab-item" ng-class="{true:'active'}[status==7]" ng-click="tabs(7)">还款中</a>
+        <a class="tab-item" ng-class="{true:'active'}[status==8]" ng-click="tabs(8)">交易完成</a>
+      </div>
+  </div>
+<ion-content has-tabs="true" class="bg-gray order" id="backcolor">
+  <div class="content_div3rem"></div>
+    <div class="list">
+      <div class="loan" ng-repeat="item in articles track by $index">
+                        <div class="item item-divider" >
+                         {{item.shopName}}
+                         <span class="font-12 float-r">申请时间：{{item.gmtCreate}}</span>
+                        </div>
+                        <div class="item item-text-wrap">
+                          <h3>申请单号：{{item.orderId}}
+                            <span class="float-r bule" ng-if="item.orderStatus==0">待审核</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==1">机器审核失败</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==2">机器审核通过</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==3">风控审核失败</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==4">风控审核通过</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==5">财务审核失败</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==6">财务审核通过</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==7">还款中</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==8">交易完成</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==9">追账中</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==10">已坏账</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==11">已删除</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==12">待确定合同</span>
+                            <span class="float-r bule" ng-if="item.orderStatus==13">待签约授权</span>
+                          </h3>
+                          <ul>
+                              <li>贷款金额：<span>¥{{item.amount}}.00</span></li>
+                              <li>预计还款计划：¥{{item.repaymentAmount}} x {{item.loanPeriods}}期</li>
+                              <li>已还款期数：{{item.repaymentPeriods}} 期</li>
+                              <li>扣款银行：{{item.bankStr}} <a class="bule float-r font-12" ng-click="showPopup(item.orderId,item.loanPeriods,item.repaymentPeriods)">详情>></a></li>
+                          </ul>
+                        </div>
+                         <div class="item item-button-right" ng-if="item.orderStatus==12">
+                          <a class="button button-positive" href="#/audit/{{item.id}}">
+                            确定合同
+                          </a>
+                          &nbsp;
+                        </div>
+                        <div class="item item-button-right" ng-if="item.orderStatus==13">
+                          <a class="button button-positive" href="http://platform.kuaibeikj.com/kuaibei/api/lianlianpay/signApply?oanId={{item.id}}">
+                            签约授权
+                          </a>
+                          &nbsp;
+                        </div>
+                        <div class="item item-button-right" ng-if="item.orderStatus==7">
+                          <a class="button button-positive" ng-if="item.isOverdue==1" href="#/repayment/{{item.repaymentScheduleId}}">
+                            已逾期，去还款
+                          </a>
+                          &nbsp;
+                          <a class="button button-positive" href="#/repayment/{{item.repaymentScheduleId}}" ng-if="item.isOverdue==0">
+                            手动还款
+                          </a>
+                        </div>
+                    </div>
+
+                  <!-- 没有信息 -->
+                  <div class="notips bg-gray" ng-if="articles.length<1">
+                    <img src="../img/onoder.png" alt=""  width="40%">
+                    <p class="margin0">还没有任何贷款</p>
+                  </div>
+    </div>
+
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      ng-if="moreDataCanBeLoaded()"
+      distance="1%"
+      class="more_load">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

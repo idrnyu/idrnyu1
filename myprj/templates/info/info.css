@@ -1,0 +1,221 @@
+ 	/*info 目录下所文件样式集中在此*/  
+ 
+/* authentication.html 身份认证 页面样式 */
+
+.item .putName{
+	background-color: white;
+	color: black;
+}
+
+.item-checkbox{
+	 height: 54px;
+}
+
+#checkbox1{
+	zoom: 80%;
+	margin-top: 6px;
+}
+
+#checkbox1+label{
+	font-size: 13px;
+	margin-left: 35px;
+	margin-top: -13px;
+}
+
+#checkbox1+label>a{
+	color: #0C60EE;
+}
+
+/*----------  E  N  D  --------*/
+
+
+/*awarddateils.html 1 2  奖励明细 页面样式*/
+.topItem_box{
+	display: flex;
+	width: 100%;
+	height: 46px;
+	position: relative;
+}
+
+.topItem_box #boxstext{
+	flex: 1;
+	text-align: center;
+}
+
+/*awarddateils1.html 2*/ 
+.top_content{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.org_a{
+	color: orange;
+	font-size: 15px;
+}
+
+.money_a{
+	color: orange;
+	font-size: 20px;
+}
+
+.money_a+a{
+	color: rgba(57, 127, 245, 0.94);
+}
+
+.withdrawal_btn{
+	height: 40px;
+	width: 60%;
+	color: white;
+}
+
+.notes{
+	margin-top: 10px;
+}
+
+.notes>.item{
+	height: 45px;
+	line-height: 15px;
+}
+
+.notes_tab{
+	height: 45px;
+	line-height: 12px;
+	font-size: 15px;
+}
+
+.amount_text{
+	color: red;
+}
+
+/*--------- E  N  D  ----------*/
+
+/*awarddetailslist.html  明细记录样式*/
+
+.bar-name{
+	margin-left: 10px;
+}
+
+.bar-money{
+	margin-left: 20px;
+}
+
+.bar-award{
+	margin-left: 2px;
+}
+
+.item_height{
+	height: 45px;
+	line-height: 12px;
+	font-size: 15px;
+}
+
+.colorRed{
+	color: red;
+}
+
+.text_color{
+	color: rgba(57, 127, 245, 0.94);
+}
+/***------  E N D *-------*/
+
+/*awardwithdraw.html  我的奖励提现页面 样式*/
+
+.size-14{
+	font-size: 14px;
+}
+
+.marginT-20{
+	margin-top: 20px;
+}
+/***------- E N D -----***/
+
+
+/*suppleInfo.html  辅助信息 样式*/
+.size-15{
+	font-size: 15px;
+}
+
+.zone_input{
+	width: 60px;
+	margin-left: 15%;
+	border: none;
+	text-align: center;
+}
+
+.tel_input{
+	width: 40%;
+	border: none;
+	text-align: center;
+}
+
+/*-----  E  N  D  -------*/
+
+/*information.html 基本资料文件样式*/
+.sculpture{
+	margin-top: 0.7rem;
+	position: absolute;
+}
+/*------- E N D ------*/
+
+/*inviterecordpage.html  邀请记录文本样式*/
+.span_name{
+	float: left;
+	width: 20%;
+	text-align: center;
+	margin-left: 5px;
+}
+.span_name + span{
+	width: 20%;
+}
+
+.span_date{
+	float: right;
+	margin-right: 10px;
+	width: 20%;
+}
+
+.us_name{
+	float: left;
+	text-align: center;
+	width: 20%;
+}
+
+.us_cent40{
+	text-align: center;
+	width: 40%;
+}
+
+.centRi25{
+	text-align: center;
+	width: 25%;
+	float: right;
+}
+/*------  E  N  D  END ----*/
+
+/*zsaward.html  文件样式*/
+.full{
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+.notes_pText{
+	color: #ff9933;
+	font-size: 16px;
+}
+
+.my_reward{
+	height: 50px;
+	width: 80%;
+	color: white;
+}
+
+.my_code{
+	color: #FF9933;
+	font-size: 17px;
+	margin-bottom: 20px;
+}
+/*------  E  N  D  --- ----*/
+
+
+

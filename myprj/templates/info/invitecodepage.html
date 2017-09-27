@@ -1,0 +1,56 @@
+<ion-view view-title="专属邀请码" can-swipe-back="false" cache-view="false">
+  <ion-header-bar align-title="center" class="bar-light">
+    <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.index','true')"></i>
+    <h2 class="title">专属邀请码</h2>
+  </ion-header-bar>
+
+  <ion-content  >
+
+
+      <label class="item item-input">
+        <span class="input-label font-13">姓名</span>
+        <input type="text" placeholder="请输入您的姓名" ng-model="json.name">
+      </label>
+      <label class="item item-input">
+        <span class="input-label font-13">身份证号</span>
+        <input type="text" placeholder="请输入您的身份证号" ng-model="json.idNum">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label font-13">手机</span>
+        <input type="text" placeholder="请输入您的手机" ng-model="json.mobile">
+      </label>
+      <label class="item item-input" ng-click="shop()">
+        <span class="input-label font-13">所属品牌</span>
+        <!--<input type="text" placeholder="请选择您的所属商户" ng-model="json.mobile">-->
+        <span class="item-note" ng-class="sh.itme.name!='请选择您的所属品牌' ?  'textcolor' : '' ">{{sh.itme.name}}</span>
+      </label>
+
+      <label class="item item-input" ng-click="storeId(sh.itme.id)">
+        <span class="input-label font-13">所属门店</span>
+        <!--<input type="text" placeholder="请选择您的所属门店" ng-model="store.itme.name">-->
+        <span class="item-note" ng-class="store.itme.name!='请选择您的所属门店' ?  'textcolor' : '' ">{{store.itme.name}}</span>
+      </label>
+      <label class="item item-input" >
+        <span class="input-label font-13">其他备注</span>
+        <input type="text" placeholder="其他备注" ng-model="json.remark">
+      </label>
+
+
+    <div class="yanz">
+        <label class="item item-input">
+          <span class="input-label font-13">短信验证码</span>
+          <input type="text" maxlength="6" ng-model="json.code" placeholder="请输入验证码">
+        </label>
+        <button class="button button-small button-positive"  ng-click="getTestCode()" ng-bind="description" ng-disabled="canClick">获取验证码</button>
+      </div>
+
+    <!--</div>-->
+
+
+    <p class="btn"><button class="button button-positive" ng-click="gotogetzscode()" >马上验证</button></p>
+
+
+  </ion-content>
+</ion-view>
+

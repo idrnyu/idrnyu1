@@ -1,0 +1,50 @@
+<ion-view view-title="我的还款"  can-swipe-back="false">
+ 	<ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+        <h2 class="title">我的还款</h2>
+    </ion-header-bar>
+
+	<ion-content class="bg-gray" >
+
+    <div class="list">
+        <div class="loan"  ng-repeat="itme in articles">
+          <div class="item item-divider" >
+            {{itme.oanId}}
+            <span class="float-r bule" ng-if="itme.status==0">待审核</span>
+            <span class="float-r bule" ng-if="itme.status==2">删除</span>
+            <span class="float-r bule" ng-if="itme.status==1">还款成功</span>
+            <span class="float-r bule" ng-if="itme.status==3">未通过</span>
+
+          </div>
+          <div class="item item-text-wrap">
+            <ul class="margin0">
+                <li>贷款金额：<span>¥{{itme.loanAmount}}</span></li>
+                <li>预计还款计划：¥{{itme.shouldAmount}} x {{itme.periods}}期</li>
+                <li ng-if="itme.isOverdue==1">是否逾期：是  <span></span>  </li>
+                <li ng-if="itme.isOverdue==0">是否逾期：否</li>
+                <li ng-if="itme.isOverdue==1">逾期天数：{{itme.overdueDay}}天</li>
+                <li ng-if="itme.isOverdue==1">逾期金额：{{itme.shouldOverdueAmount}}</li>
+                <li>应还款金额： ¥{{itme.shouldOverdueAmount+itme.shouldAmount}}</li>
+                <li>扣款方式：{{itme.way}} </li>
+                <li>扣款账号：{{itme.repaymentAccount}} </li>
+            </ul>
+          </div>
+          <div class="item">
+          <h3 class="text_right">{{itme.realityTime}}</h3>
+          </div>
+      </div>
+    </div>
+
+      <ion-infinite-scroll
+      on-infinite="loadMore()"
+      ng-if="moreDataCanBeLoaded()"
+      distance="1%"
+      class="more_load">
+    </ion-infinite-scroll>
+      <!-- 没有信息 -->
+                  <div class="notips bg-gray" ng-if="articles.length<1">
+                    <img src="../img/onoder.png" alt=""  width="40%">
+                    <p class="margin0">还没有任何贷款</p>
+                  </div>
+	</ion-content>
+</ion-view>

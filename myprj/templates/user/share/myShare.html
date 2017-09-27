@@ -1,0 +1,29 @@
+<ion-view view-title="我的红包"  can-swipe-back="false">
+	<link rel="stylesheet" type="text/css" href="templates/user/share/share.css" />
+  <ion-header-bar align-title="center" class="bar-light">
+    <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.index','true')"></i>
+    <h2 class="title">我的红包</h2>
+    <!-- ng-click="packetdeclare()"-->
+    <button class="button description-btn">
+      使用说明
+    </button>
+  </ion-header-bar>
+  <ion-content >
+
+
+    <div class="list" >
+
+      <ion-item class="item item-icon-right" ng-repeat="r in myredpacketall" ng-if="r.status">
+        {{r.rname }}
+        <a class="aStyle" ng-click="duihuanquan1(r.id)">立即兑换</a>
+        <i class="icon ion-ios-arrow-right iColor"></i>
+      </ion-item>
+
+    </div>
+
+  </ion-content>
+
+
+</ion-view>
+
+

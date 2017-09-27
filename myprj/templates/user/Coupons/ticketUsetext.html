@@ -1,0 +1,59 @@
+<!--优惠券-使用说明-->
+<ion-view view-title="使用说明" can-swipe-back="false">
+	<link rel="stylesheet" type="text/css" href="templates/user/Coupons/coupons.css"/>
+  <ion-header-bar align-title="center" class="bar-light">
+    <!--<i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>-->
+    <!--ng-click="goCoupons()"-->
+    <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+
+    <h2 class="title">使用说明</h2>
+
+    <!--<button class="button" style="font-size:16px;border: none;float: right"   >-->
+    </button>
+
+  </ion-header-bar>
+  <ion-content class="bg-gray ticketUsetext" >
+
+
+    <div class="has-header" >
+
+        <ion-list id="list_font-box">
+          <ion-item class="item-icon-right font-14" ng-click="lookdetails(1)">
+            1、如何获取平台优惠券？
+            <i class="icon ion-ios-arrow-right gray font-16"></i>
+          </ion-item>
+          <div class="item item-text-wrap bg-gray" ng-if="textdetails1">
+          <p> 平台优惠券可通过快贝分期平台办理分期业务时享受费用及利息优惠，用户通过邀请好友可获得奖励红包及平台优惠券、另外奖励红包也可兑换平台优惠券使用
+          </p>
+          </div>
+
+          <ion-item class="item-icon-right font-14" ng-click="lookdetails(2)">
+            2、平台优惠券的类型有哪些？
+            <i class="icon ion-ios-arrow-right gray font-16"></i>
+          </ion-item>
+          <div class="item item-text-wrap bg-gray"  ng-if="textdetails2">
+          <p> 有固定费用减免券、每月费用减免券、固定利息减免券、每月利息减免券
+            、利息天数减免券等
+          </p>
+          </div>
+
+          <ion-item class="item-icon-right font-14" ng-click="lookdetails(3)">
+            3、平台优惠券怎么使用？
+            <i class="icon ion-ios-arrow-right gray font-16"></i>
+          </ion-item>
+          <div class="item item-text-wrap bg-gray" ng-if="textdetails3">
+          <p>  在个人中心处查看与使用优惠券，一次只能使用一张，只适用于快贝分期平台（非优惠分期），在办理分期业务时选择使用
+          </p>
+          </div>
+
+
+
+        </ion-list>
+
+
+      </div>
+
+
+  </ion-content>
+
+</ion-view>

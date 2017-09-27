@@ -1,0 +1,29 @@
+ /*myAccount.html  页面样式*/
+
+.head-label{
+	display: flex;
+	width: 100%;
+	height: 46px;
+	position: relative;
+}
+
+.label-repeat{
+	flex: 1;
+	text-align: center;
+}
+
+
+
+
+
+.button-marginTop{
+	margin-top: 20px;
+}
+
+
+.Hgray-color{
+	color: rgba(57, 127, 245, 0.94);
+}
+
+
+

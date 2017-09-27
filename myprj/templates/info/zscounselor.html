@@ -1,0 +1,26 @@
+<ion-view view-title="专属顾问" can-swipe-back="false" cache-view="false">
+  <ion-header-bar align-title="center" class="bar-light">
+    <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.index','true')"></i>
+    <h2 class="title">专属顾问</h2>
+  </ion-header-bar>
+
+  <ion-content  >
+
+    <div class="list list-inset">
+
+      <label class="item item-input">
+        <span class="input-label font-13">专属顾问</span>
+        <input type="text" placeholder="请输入专属顾问" ng-model="json.salerName">
+      </label>
+      <label class="item item-input">
+        <span class="input-label font-13">顾问手机</span>
+        <input type="text" placeholder="请输入顾问手机号码" ng-model="json.salerMobile">
+      </label>
+
+    </div>
+
+    <p class="btn"><button class="button button-positive"  ng-click="gotoNextcode()">下一步</button></p>
+
+  </ion-content>
+</ion-view>
+

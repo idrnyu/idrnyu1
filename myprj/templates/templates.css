@@ -1,0 +1,154 @@
+/*main index 主文件的样式*/
+.mylogo {
+	background: url('../img/system/logo.png?time=2016_04_29') no-repeat center;
+	width: 175px;
+	height: 125px;
+	background-size: 175px;
+	margin: 0 auto;
+}
+.pinner{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #fff;
+	z-index: 999;
+}
+#dLoadingProcess{
+	color: #505050;
+	margin: 35% auto auto auto;
+}
+#dLoadingProcess + div{
+	position: absolute;
+	bottom: 5%;
+	width: 100%;
+}
+.bar{
+	/*border-bottom: 1px solid #ddd;*/
+}
+
+
+
+
+
+/*  borrowing/myBorrowing.html  文件样式*/
+
+.content_div3rem{
+	margin-top: 3rem;
+}
+
+.margin0{
+	margin: 0;
+}
+
+/****   E N D   ****/
+
+
+/*help/help.html   文件样式*/
+
+.marginTop-60{
+	margin-top: 60px;
+}
+
+
+.text_right{
+	text-align: right;
+}
+
+/****   E N D   ****/
+
+
+
+
+ /*邀请界面的图片 公共样式*/
+
+#invite_img{
+	width: 100%;
+	height: auto;
+}
+
+/****   E N D   ****/
+
+
+.mTop-3{
+	margin-top: -3px;
+}
+
+.mTop-7{
+	margin-top: -7px;
+}
+
+.textCenter{
+	text-align: center;
+}
+
+
+/*templates/index.html  文件样式  stat*/
+.content_box{
+	z-index: 1;
+	position: relative;
+}
+
+.slidebox,.shuffling{
+	width: 100%;
+	height: 130px;
+}
+
+.homeRedPop{
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	background-color: rgba(32, 32, 32, 0.62);
+}
+
+.popBackImg{
+	background-image: url(../img/new/Aalertbodybg.png);
+	width: 70%;
+	margin-left: 15%;
+}
+
+.popBackImg>.scroll{
+	height: 200px;
+	overflow: auto;
+	margin-top: -5px;
+	z-index: 200;
+	position: relative;
+}
+
+.homePopImg{
+	height: 70px;
+}
+
+.redP{
+	z-index: 300;
+	position: absolute;
+	margin-left: 15%;
+	margin-top: -55px;
+	font-family: arial,"arial, helvetica, sans-serif";
+}
+
+.offsetMoney{
+	color: rgba(229, 24, 12, 0.62);
+	float: left;
+	font-size: 17px;
+	margin-top: 10px;
+	height: 40px;
+}
+
+.specJsonF{
+	float: right;
+	font-size: 10px;
+	margin-right: -120px;
+}
+
+.imgbtn{
+	width: 70%;
+	height: 60px;
+	margin-top: -5px;
+}
+
+/***** E N D *****  templates/index.html  E N D */

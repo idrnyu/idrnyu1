@@ -1,0 +1,38 @@
+<ion-view view-title="通知提示"  can-swipe-back="false">
+	<ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+        <h2 class="title">通知提示</h2>
+        <!-- <i class="icon ion-trash-a font-12"></i> -->
+        <div class="buttons">
+    <button class="button button-clear button-positive" ng-click="Edit()">清空</button>
+  </div>
+    </ion-header-bar>
+	<ion-content class="bg-gray" >
+		 <!-- <ion-slide-box show-pager="false" on-slide-changed="slideChanged($index)">
+                <ion-slide> -->
+                  	<div class="card tip_list" ng-if="tipslist.length>0" ng-repeat="itme in tipslist">
+						<div class="item item-divider">
+					    {{itme.title}}
+					    <span class="float-r">{{itme.gmtCreate}}</span>
+					  </div>
+					  <div class="item item-text-wrap">
+					    {{itme.content}}
+					  </div>
+				</div>
+                <!-- </ion-slide> -->
+
+    <ion-infinite-scroll
+      on-infinite="loadMore()"
+      ng-if="moreDataCanBeLoaded()"
+      distance="1%"
+      class="more_load">
+    </ion-infinite-scroll>
+      <!-- </ion-slide-box>  -->
+
+		<!-- 没有信息 -->
+		<div class="notips bg-gray" ng-if="tipslist.length<1">
+			<img src="../img/notips.png" alt=""  width="40%">
+			<p class="margin0">还没有任何消息</p>
+		</div>
+	</ion-content>
+</ion-view>

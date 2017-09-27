@@ -1,0 +1,74 @@
+<ion-view view-title="添加银行卡"  can-swipe-back="false">
+	<link rel="stylesheet" type="text/css" href="templates/user/bank/bank.css"/>
+	<ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('bank','true')"></i>
+        <h2 class="title">添加银行卡</h2>
+    </ion-header-bar>
+
+	<ion-content class="bg-gray" >
+
+			<div class="list" >
+
+			<div class="item item-divider font-12">
+	          基本信息
+	        </div>
+			<label class="item item-input">
+			    <span class="input-label font-13">姓名</span>
+			    <input type="text" placeholder="请使用您本人的姓名" ng-model="userlist.name">
+			  </label>
+
+			<label class="item item-input">
+			    <span class="input-label font-13">身份证号</span>
+			    <input type="text" placeholder="填写身份证号" ng-model="userlist.idcard">
+			  </label>
+
+			<div class="item item-divider font-12">
+		          联系方式
+		        </div>
+
+			<label class="item item-input">
+			    <span class="input-label font-13">银行卡号</span>
+			    <input type="text" placeholder="请使用您本人的银行卡" ng-model="model.account">
+			  </label>
+
+			<label class="item item-input">
+			    <span class="input-label font-13">开户行</span>
+			    <input type="text" placeholder="填写开户银行" ng-model="model.bankname">
+			  </label>
+
+<!-- 			<label class="item item-input">
+			    <span class="input-label font-13">银行卡类型</span>
+			    <input type="text" placeholder="如：借记卡" ng-model="model.bankType">
+			  </label> -->
+
+				<ionic-city-picker options='vm.CityPickData'></ionic-city-picker>
+
+			<label class="item item-input">
+			    <span class="input-label font-13">预留手机号</span>
+			    <input type="text" placeholder="请输入在银行的预留手机号" ng-model="model.mobile">
+			  </label>
+
+ 			<div class="yanz">
+			  <label class="item item-input">
+			    <span class="input-label font-13">短信验证码</span>
+			    <input type="text" maxlength="6" ng-model="model.code">
+			  </label>
+			  <button class="button button-small button-positive"  ng-click="getTestCode()" ng-bind="description" ng-disabled="canClick">获取验证码</button>
+		</div>
+			</div>
+			<!--<div class="ckbox">-->
+				<!--<ion-checkbox ng-model="ac.isChecked" class="font-12">已阅读并同意    <a  style="color: #0c60ee" >《借款额度合同及相关授权》</a> </ion-checkbox>-->
+
+			<!--</div>-->
+
+    <label class="item item-checkbox">
+      <label class="checkbox" >
+        <input id="checkbox1" type="checkbox" checked>
+        <label class="checkbox" ng-click="solook()"> 已阅读并同意 <a>《借款额度合同及相关授权》</a></label>
+      </label>
+    </label>
+
+
+    <p class="btn"><button class="button button-positive "  href="#/suppleInfo" ng-click="btn_bc()">保 存</button></p>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,233 @@
+<ion-view view-title="辅助信息"  can-swipe-back="false">
+	<link rel="stylesheet" type="text/css" href="templates/info/info.css" />
+	<ion-header-bar align-title="center" class="bar-light">
+        <i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>
+        <h2 class="title">辅助信息</h2>
+    </ion-header-bar>
+
+	<ion-content class="bg-gray note_text" >
+
+			<div class="step">
+		        <div class="row row-center font-12">
+		            <div class="col">
+		                <span class="green_step">1</span>
+		                <i class="float-r green_step"></i>
+		            </div>
+		            <div class="col">
+		                <i class="float-l green_step"></i>
+		                <span class="green_step">2</span>
+		                <i class="float-r "></i>
+		            </div>
+		            <div class="col">
+		                <i class="float-l "></i>
+		                <span >3</span>
+		                <i class="float-r"></i>
+		            </div>
+		            <div class="col">
+		                <i class="float-l"></i>
+		                <span>4</span>
+		            </div>
+		        </div>
+		        <div class="row row-center font-12">
+		            <div class="col bule">
+		                基本信息
+		            </div>
+		            <div class="col bule">
+		                辅助信息
+		            </div>
+		            <div class="col">
+		                提升信用
+		            </div>
+		            <div class="col">
+		                上传资料
+		            </div>
+		        </div>
+		    </div>
+
+			<div class="list">
+			  <div class="item  item-icon-right" ng-click="showOccupation()">
+                	社会身份
+	                 <span class="item-note">{{occupa.type}}</span>
+	                <i class="icon ion-ios-arrow-right gray font-16"></i>
+	            </div>
+
+				<div class="item  item-icon-right" ng-click="showEducation()">
+                	教育程度
+	                 <span class="item-note">{{educa.type}}</span>
+	                <i class="icon ion-ios-arrow-right gray font-16"></i>
+	            </div>
+
+
+				<div class="item item-divider font-12">
+		          收入信息
+		        </div>
+			  <!--<label class="item item-input">-->
+			    <!--<span class="input-label font-13">月平均收入</span>-->
+			    <!--<input type="text" placeholder="请输入您的工作收入(元)" ng-model="jbinfo.gzsr">-->
+			  <!--</label>-->
+        <div class="item  item-icon-right" ng-click="showGzsr()">
+          月平均收入
+          <span class="item-note">{{gzsr.type}}</span>
+          <i class="icon ion-ios-arrow-right gray font-16"></i>
+        </div>
+
+        <!--<label class="item item-input">-->
+			    <!--<span class="input-label font-13">其他收入</span>-->
+			    <!--<input type="text" placeholder="请输入您的其他收入(元)" ng-model="jbinfo.qtsr">-->
+			  <!--</label>-->
+			  <!--<label class="item item-input">-->
+			    <!--<span class="input-label font-13">其他贷款</span>-->
+			    <!--<input type="text" placeholder="请输入您的其他贷款(元)" ng-model="jbinfo.qtdk">-->
+			  <!--</label>-->
+
+			  <div class="item  item-icon-right" ng-click="showfd()">
+                	房贷
+	                 <span class="item-note">{{fd.isfd}}</span>
+	                <i class="icon ion-ios-arrow-right gray font-16"></i>
+	            </div>
+
+	            <div class="item  item-icon-right" ng-click="showcd()">
+                	车贷
+	                 <span class="item-note">{{cd.iscd}}</span>
+	                <i class="icon ion-ios-arrow-right gray font-16"></i>
+	            </div>
+
+
+
+			  <div class="item item-divider font-12">
+		          单位信息
+		        </div>
+
+		        <label class="item item-input">
+			    <span class="input-label font-13">单位全称</span>
+			    <input type="text" placeholder="请输入单位全称" ng-model="jbinfo.dwqc">
+			  </label>
+
+				<!--<label class="item item-input">-->
+			    <!--<span class="input-label font-13">单位电话</span>-->
+			  <!--<input style="background-color: orange;" type="text" placeholder="请输入单位区号-电话" ng-model="jbinfo.dwdh">-->
+			  <!--</label>-->
+        <ion-item class="size-15">
+        单位电话
+          <input class="zone_input" placeholder="区号" ng-model="jbinfo.area">
+          -
+          <input class="tel_input" placeholder="电话" ng-model="jbinfo.dwdh">
+        </ion-item>
+
+
+        <label class="item item-input">
+				    <span class="input-label">入职日期：</span>
+				    <ionic-datepicker input-obj="datepickerObject" class="item-button-right sj">
+				        <button class="button button-clear button-positive">
+				            {{jbinfo.zjrzrq}}
+				        </button>
+				    </ionic-datepicker>
+				</label>
+
+
+			  <ionic-city-picker options='vm.CityPickData' placeholder="居住地址"></ionic-city-picker>
+
+			  <label class="item item-input">
+			    <span class="input-label font-13">详细地址</span>
+			    <input type="text" placeholder="详细地址" ng-model="jbinfo.dwxxdz">
+			  </label>
+
+				<div class="item item-divider font-12">
+		          联系人
+		        </div>
+
+				<div class="list" ng-if="articles" ng-repeat="itme in articles">
+		           <div class="item item-icon-right" ng-click="showqs({{$index}})" ng-if="$index==0">
+	                	家庭联系人
+		                 <span class="item-note">{{itme.gx}}</span>
+		                  <i class="icon ion-ios-arrow-right gray font-16"></i>
+		            </div>
+		            <div class="item item-icon-right" ng-click="showqs({{$index}})" ng-if="$index>0">
+	                	关系人
+		                 <span class="item-note">{{itme.gx}}</span>
+		                  <i class="icon ion-ios-arrow-right gray font-16"></i>
+		            </div>
+
+					  <label class="item item-input">
+					    <span class="input-label font-13">姓名</span>
+					    <input type="text" placeholder="请输入真实姓名" ng-model="itme.xm">
+					  </label>
+
+					  <label class="item item-input">
+					    <span class="input-label font-13">手机号</span>
+					    <input type="tel" placeholder="请输入联系人手机号码" ng-model="itme.lxdh">
+					  </label>
+
+						<div class="item item-toggle">
+				           同现居地址
+				           <label class="toggle toggle-balanced">
+				             <input type="checkbox" ng-model="itme.txjdz"
+		                    ng-checked="itme.txjdz">
+				             <div class="track">
+				               <div class="handle"></div>
+				             </div>
+				           </label>
+				        </div>
+
+				        <label class="item item-input" ng-if="itme.txjdz!=true">
+					    <span class="input-label font-13">详细地址</span>
+					    <input type="text" placeholder="请输入现居住详细地址" ng-model="itme.lxdz">
+					  </label>
+
+			  </div>
+
+			  <div class="item" ng-click="modal.show()">
+			  	+添加其他联系人
+			  </div>
+
+
+			</div>
+	        <p class="btn"><button class="button button-positive "  ng-click="goNext()">下一步</button></p>
+
+
+	</ion-content>
+	<script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">添加联系人</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">关闭</button>
+        </ion-header-bar>
+        <ion-content class="padding note_text">
+        <div class="list">
+           <div class="item  item-icon-right" ng-click="showqs()">
+                	亲属关系
+	                 <span class="item-note">{{qs.gx}}</span>
+	                <i class="icon ion-ios-arrow-right gray font-16"></i>
+	            </div>
+
+			  <label class="item item-input">
+			    <span class="input-label font-13">姓名</span>
+			    <input type="text" placeholder="请输入真实姓名" ng-model="contact.xm">
+			  </label>
+
+			  <label class="item item-input">
+			    <span class="input-label font-13">手机号</span>
+			    <input type="tel" placeholder="请输入联系人手机号码" ng-model="contact.lxdh">
+			  </label>
+
+				<div class="item item-toggle">
+		           同现居地址
+		           <label class="toggle toggle-balanced">
+		             <input type="checkbox" ng-model="settingsList.checked"
+                    ng-checked="settingsList.checked ">
+		             <div class="track">
+		               <div class="handle"></div>
+		             </div>
+		           </label>
+		        </div>
+
+		        <!--<label class="item item-input" ng-if="settingsList.checked!=true" style="margin-bottom:10px;">-->
+			    <!--<span class="input-label font-13">详细地址</span>-->
+			    <!--<input type="text" placeholder="请输入现居住详细地址" ng-model="contact.lxdz">-->
+			  <!--</label>-->
+			  </div>
+			  <button class="button button-positive button-block"  ng-click="addlist()">保存</button>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+</ion-view>

@@ -1,0 +1,67 @@
+<ion-view view-title="用户注册"  can-swipe-back="false">
+
+  <!--<ion-header-bar align-title="center" class="bar-light">-->
+  <!--&lt;!&ndash;<i class="ion-ios-arrow-thin-left bule" ng-click="myBack('tab.personal','true')"></i>&ndash;&gt;-->
+  <!--<h2 class="title">用户注册</h2>-->
+  <!--</ion-header-bar>-->
+
+  <!-- style="background: -webkit-linear-gradient(top,rgba(185, 101, 253, 0.91),rgba(113, 16, 253, 0.91))"-->
+  <!--style="background: -webkit-linear-gradient(top,rgba(251, 206, 215, 0.91),rgba(251, 177, 193, 0.91))"-->
+  <ion-content id="regbackview"  style="background-color: rgba(251, 206, 215, 0.91)">
+
+   <div style="width: 100%;height: 50%">
+<img src="img/new/7x2.jpg" width="100%">
+   </div>
+
+    <!--style="background-image: url('img/new/activityRegister1.jpg') ;"-->
+    <div class="list" style="margin-top: 20px;left: 10%;">
+      <!--bottom: 40px;-->
+      <!--{{-230*regdivheight}}-->
+      <!--class="content has-header "-->
+      <!--list-inset-->
+      <!--style="border-radius:20px"-->
+      <div class="list " >
+        <label class="item item-input" style="height: 40px;border-radius:20px;width: 80%;">
+          <span class="input-label">姓名</span>
+          <input type="text"  name="user" placeholder="请输入姓名" ng-model="json.userName">
+        </label>
+
+
+        <label class="item item-input" style="height: 40px;margin-top: 5px;border-radius:20px;width: 80%;">
+          <span class="input-label">手机</span>
+          <input type="text"  name="user" placeholder="请输入手机号" ng-model="json.mobile">
+        </label>
+        <label class="item item-input" style="height: 40px;margin-top: 5px;border-radius:20px;width: 80%;">
+          <span class="input-label">密码</span>
+          <input type="password"  name="user" placeholder="请输入登录密码" ng-model="json.password">
+        </label>
+
+        <div class="yanz" style="margin-top: 5px;border-radius:20px;width: 80%;height: 40px;">
+          <label class="item item-input" style="margin-top: 5px;border-radius:20px;height: 40px;">
+            <span class="input-label font-13">验证码</span>
+            <input type="text" maxlength="6" ng-model="json.code" placeholder="请输入验证码">
+          </label>
+          <button style="margin-top: -5px" class="button button-small button-positive"  ng-click="getTestCode()" ng-bind="description" ng-disabled="canClick">获取验证码</button>
+        </div>
+
+        <label class="item item-input" style="height: 40px;margin-top: 5px;border-radius:20px;width: 80%;" ng-click="showselect()">
+          <span class="input-label">关注类型</span>
+          <span class="item-note" ng-click="showselect()" ng-class="goodsTypes.goods !='请选择关注类型' ?  'textcolor' : '' ">{{goodsTypes.goods}}</span>
+        </label>
+
+
+      </div>
+
+      <div class="padding" >
+        <button class="button button-block button-positive" ng-click="registerlogin()" style="border-radius:10px;width: 80%;left: -3px">确 定</button>
+      </div>
+
+
+
+    </div>
+    <p style="width: 100%;text-align: center;color: white;font-size: 16px">快贝分期</p>
+  </ion-content>
+
+</ion-view>
+
+
