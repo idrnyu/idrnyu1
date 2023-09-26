@@ -136,9 +136,7 @@
             frameRate: { ideal: 24, max: 24 },
           },
         };
-        return await navigator.mediaDevices
-          .getUserMedia(constraints)
-          .catch((e) => e);
+        return await navigator.mediaDevices.getUserMedia(constraints);
       }
 
       async function start() {
@@ -156,8 +154,10 @@
           videoInput.value,
           audioInput.value
         );
+        console.log(newStream)
         videoDom.srcObject = newStream;
         videoDom.muted = true;
+        videoDom.play();
       }
     </script>
   </body>
