@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .device-select {
+      }
+      .device-item {
+        display: inline;
+        margin-right: 10px;
+      }
+      #video-dom {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+    <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <div class="device-select">
+        <div class="device-item">
+          <label for="audio_input">音频输入设备</label>
+          <select name="audio_input" id="audio_input"></select>
+        </div>
+        <div class="device-item">
+          <label for="audio_output">音频输出设备</label>
+          <select name="audio_output" id="audio_output"></select>
+        </div>
+        <div class="device-item">
+          <label for="vidio_input">视频输入设备</label>
+          <select name="vidio_input" id="vidio_input"></select>
+        </div>
+
+        <button onclick="start()">开始</button>
+      </div>
+      <video id="video-dom" autoplay controls muted></video>
+    </div>
+
+    <script>
+      var vConsole = new window.VConsole();
+
+      const audioInput = document.querySelector("#audio_input");
+      const audioOutput = document.querySelector("#audio_output");
+      const videoInput = document.querySelector("#vidio_input");
+      const videoDom = document.querySelector("#video-dom");
+
+      const localDevices = {
+        audio_input: [],
+        audio_output: [],
+        video_input: [],
+      };
+
+      function deviceNotExist(kindStr, curDeviceId) {
+        return (
+          localDevices[kindStr].filter((item) => item.id === curDeviceId)
+            .length === 0
+        );
+      }
+
+      function initDevice() {
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+          stream.getTracks().forEach((trick) => {
+            trick.stop();
+          });
+        }).catch((e) => {
+          console.log('错误', e);
+        });
+        // 枚举出链接的所有设备
+        navigator.mediaDevices.enumerateDevices().then((devices) => {
+          const audioInputFragment = document.createDocumentFragment();
+          const audioOutputFragment = document.createDocumentFragment();
+          const videoInputFragment = document.createDocumentFragment();
+          devices.forEach((device) => {
+            let obj = {
+              id: device.deviceId,
+              kind: device.kind,
+              label: device.label,
+            };
+            switch (obj.kind) {
+              case "audioinput":
+                if (deviceNotExist("audio_input", obj.id)) {
+                  localDevices.audio_input.push(obj);
+                  const op = document.createElement("option");
+                  op.innerHTML = obj.label;
+                  op.value = obj.id;
+                  audioInputFragment.appendChild(op);
+                }
+                break;
+              case "audiooutput":
+                if (deviceNotExist("audio_output", obj.id)) {
+                  localDevices.audio_output.push(obj);
+                  const op = document.createElement("option");
+                  op.innerHTML = obj.label;
+                  op.value = obj.id;
+                  audioOutputFragment.appendChild(op);
+                }
+                break;
+              case "videoinput":
+                if (deviceNotExist("video_input", obj.id)) {
+                  localDevices.video_input.push(obj);
+                  const op = document.createElement("option");
+                  op.innerHTML = obj.label;
+                  op.value = obj.id;
+                  videoInputFragment.appendChild(op);
+                }
+                break;
+              default:
+                break;
+            }
+          });
+          console.log(devices);
+          console.log(localDevices);
+          audioInput.appendChild(audioInputFragment);
+          audioOutput.appendChild(audioOutputFragment);
+          videoInput.appendChild(videoInputFragment);
+        }).catch((err) => {
+          console.log(err);
+        });
+      }
+
+      setTimeout(() => {
+        initDevice();
+      }, 2000);
+
+      // 获取指定设备的流
+      async function getTargetIdStream(videoId, audioId) {
+        const constraints = {
+          audio: { deviceId: audioId ? { exact: audioId } : undefined },
+          vidio: {
+            deviceId: videoId ? { exact: videoId } : undefined,
+            width: 1080,
+            height: 720,
+            frameRate: { ideal: 24, max: 24 },
+          },
+        };
+        return await navigator.mediaDevices
+          .getUserMedia(constraints)
+          .catch((e) => e);
+      }
+
+      async function start() {
+        let stream = videoDom.srcObject;
+        if (stream) {
+          stream.getAudioTracks().forEach((e) => {
+            stream.removeTrack(e);
+          });
+          stream.getVideoTracks().forEach((e) => {
+            stream.removeTrack(e);
+          });
+        }
+
+        const newStream = await getTargetIdStream(
+          videoInput.value,
+          audioInput.value
+        );
+        videoDom.srcObject = newStream;
+        videoDom.muted = true;
+      }
+    </script>
+  </body>
+</html>
