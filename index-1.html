@@ -170,9 +170,9 @@
           alert(`获取媒体失败：${newStream.message}`);
           return;
         }
-        newStream.getTracks().forEach((trick) => {
-          trick.stop();
-        });
+        // newStream.getTracks().forEach((trick) => {
+        //   trick.stop();  // 用来关闭
+        // });
         videoDom.srcObject = newStream;
         videoDom.muted = true;
         videoDom.play();
