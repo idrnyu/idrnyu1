@@ -53,21 +53,26 @@
         video_input: [],
       };
 
+      function removeChildNode(node) {
+        const childNodes = node.childNodes;
+        for (var i = childNodes.length - 1; i >= 0; i--) {
+          node.removeChild(childNodes[i]);
+        }
+      }
+
       function deviceNotExist(kindStr, curDeviceId) {
-        return (
-          localDevices[kindStr].filter((item) => item.id === curDeviceId)
-            .length === 0
-        );
+        return localDevices[kindStr].filter((item) => item.id === curDeviceId).length === 0;
       }
 
       function initDevice() {
-        navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-          stream.getTracks().forEach((trick) => {
-            trick.stop();
-          });
-        }).catch((e) => {
-          console.log('错误', e);
-        });
+        localDevices.audio_input = [];
+        localDevices.audio_output = [];
+        localDevices.video_input = [];
+
+        removeChildNode(audioInput);
+        removeChildNode(audioOutput);
+        removeChildNode(videoInput);
+
         // 枚举出链接的所有设备
         navigator.mediaDevices.enumerateDevices().then((devices) => {
           const audioInputFragment = document.createDocumentFragment();
@@ -136,8 +141,14 @@
             frameRate: { ideal: 24, max: 24 },
           },
         };
-        return await navigator.mediaDevices.getUserMedia(constraints);
+        return await navigator.mediaDevices.getUserMedia(constraints).catch(e => e);
       }
+
+      // 设备插入拔出事件
+      navigator.mediaDevices.addEventListener('devicechange', (event) => {
+        console.log(event);
+        initDevice();
+      });
 
       async function start() {
         let stream = videoDom.srcObject;
@@ -154,7 +165,14 @@
           videoInput.value,
           audioInput.value
         );
-        console.log(newStream)
+
+        if (newStream.message) {
+          alert(`获取媒体失败：${newStream.message}`);
+          return;
+        }
+        newStream.getTracks().forEach((trick) => {
+          trick.stop();
+        });
         videoDom.srcObject = newStream;
         videoDom.muted = true;
         videoDom.play();
